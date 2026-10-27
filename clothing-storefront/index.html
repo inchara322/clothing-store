@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover thoughtful everyday clothing at Thread & Form."
+    />
+    <title>Thread &amp; Form — Everyday, considered</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="announcement">A little something extra: free shipping on orders over ₹2,500</div>
+    <header class="site-header">
+      <a class="wordmark" href="#" aria-label="Thread and Form home">thread<span>&amp;</span>form</a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#shop">Shop</a>
+        <a href="#story">Our story</a>
+        <a href="#newsletter">Journal</a>
+      </nav>
+      <div class="header-actions">
+        <label class="search-box">
+          <span class="sr-only">Search products</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+          <input id="search-input" type="search" placeholder="Search" />
+        </label>
+        <button class="bag-button" id="open-cart" type="button" aria-label="Open shopping bag">
+          Bag <span id="cart-count" class="bag-count">0</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=2200&q=85"
+          alt="Friends enjoying a sunny afternoon in relaxed everyday outfits"
+        />
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow light-eyebrow">Good clothes. Good days.</p>
+          <h1 id="hero-title">A wardrobe that<br />feels like you.</h1>
+          <p>Easy pieces, thoughtful details, and room to make them your own.</p>
+          <a class="button button-light" href="#shop">Explore the collection <span aria-hidden="true">→</span></a>
+        </div>
+        <span class="hero-note">Made for the everyday</span>
+      </section>
+
+      <section class="shop-section section-wrap" id="shop">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">The latest edit</p>
+            <h2>Wear on repeat</h2>
+          </div>
+          <p class="section-description">Considered staples, made for wherever the day takes you.</p>
+        </div>
+        <div class="shop-toolbar">
+          <div class="filter-list" role="group" aria-label="Filter products by category">
+            <button class="filter-button active" type="button" data-category="All">All pieces</button>
+            <button class="filter-button" type="button" data-category="Women">Women</button>
+            <button class="filter-button" type="button" data-category="Men">Men</button>
+            <button class="filter-button" type="button" data-category="Accessories">Accessories</button>
+          </div>
+          <span id="result-count" class="result-count" aria-live="polite"></span>
+        </div>
+        <details class="advanced-filters" id="advanced-filters">
+          <summary>More filters <span aria-hidden="true">+</span></summary>
+          <div class="filter-controls">
+            <label>
+              Size
+              <select id="size-filter">
+                <option value="">All sizes</option>
+              </select>
+            </label>
+            <label>
+              Colour
+              <select id="color-filter">
+                <option value="">All colours</option>
+              </select>
+            </label>
+            <label>
+              Min price
+              <input id="min-price-filter" type="number" min="0" step="100" placeholder="₹0" />
+            </label>
+            <label>
+              Max price
+              <input id="max-price-filter" type="number" min="0" step="100" placeholder="No limit" />
+            </label>
+            <label>
+              Sort by
+              <select id="sort-filter">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: low to high</option>
+                <option value="price-high">Price: high to low</option>
+                <option value="name">Name: A to Z</option>
+              </select>
+            </label>
+            <button class="clear-filters" id="clear-filters" type="button">Clear filters</button>
+          </div>
+        </details>
+        <div class="product-grid" id="product-grid"></div>
+        <p class="empty-state" id="empty-state" hidden>No pieces found. Try another search.</p>
+      </section>
+
+      <section class="story-section" id="story">
+        <div class="story-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1100&q=85"
+            alt="A model wearing a relaxed, neutral-toned outfit"
+            loading="lazy"
+          />
+        </div>
+        <div class="story-copy">
+          <p class="eyebrow">A little about us</p>
+          <h2>Less, but<br />a little better.</h2>
+          <p>We believe getting dressed should feel easy. So we focus on versatile pieces, comfortable fabrics, and details worth noticing.</p>
+          <a class="text-link" href="#newsletter">Get to know us <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="newsletter-section" id="newsletter">
+        <p class="eyebrow light-eyebrow">Notes from us</p>
+        <h2>A good thing in your inbox.</h2>
+        <p>New arrivals, little updates, and the occasional note on getting dressed.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <label class="sr-only" for="newsletter-email">Your email address</label>
+          <input id="newsletter-email" type="email" placeholder="Your email address" required />
+          <button type="submit" aria-label="Subscribe to the newsletter">Sign me up <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="newsletter-feedback" id="newsletter-feedback" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="wordmark" href="#">thread<span>&amp;</span>form</a>
+      <p>Everyday, considered.</p>
+      <span>© <span id="current-year"></span> Thread &amp; Form</span>
+    </footer>
+
+    <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping bag" aria-modal="true" role="dialog" aria-hidden="true">
+      <div class="drawer-header">
+        <div>
+          <p class="eyebrow" id="drawer-eyebrow">Your picks</p>
+          <h2><span id="drawer-title">Your bag</span> <span id="drawer-count"></span></h2>
+        </div>
+        <button class="icon-button" id="close-cart" type="button" aria-label="Close shopping bag">×</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <form class="delivery-form" id="delivery-form" hidden>
+        <button class="text-link back-to-bag" id="back-to-bag" type="button">← Back to bag</button>
+        <p class="delivery-intro">Where should we send your order?</p>
+        <label for="delivery-name">Full name <span aria-hidden="true">*</span></label>
+        <input id="delivery-name" name="name" autocomplete="name" required />
+        <label for="delivery-phone">Mobile number <span aria-hidden="true">*</span></label>
+        <div class="phone-field">
+          <span aria-hidden="true">+91</span>
+          <input id="delivery-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" pattern="[0-9]{10}" maxlength="10" title="Enter a 10-digit Indian mobile number" placeholder="10-digit mobile number" required />
+        </div>
+        <label for="delivery-address">House number and street address <span aria-hidden="true">*</span></label>
+        <textarea id="delivery-address" name="address" autocomplete="street-address" rows="2" required></textarea>
+        <div class="address-row">
+          <div>
+            <label for="delivery-city">City <span aria-hidden="true">*</span></label>
+            <input id="delivery-city" name="city" autocomplete="address-level2" required />
+          </div>
+          <div>
+            <label for="delivery-state">State <span aria-hidden="true">*</span></label>
+            <input id="delivery-state" name="state" autocomplete="address-level1" required />
+          </div>
+        </div>
+        <label for="delivery-postal">PIN code <span aria-hidden="true">*</span></label>
+        <input id="delivery-postal" name="postalCode" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{6}" maxlength="6" title="Enter a 6-digit PIN code" required />
+        <label for="delivery-note">Delivery instructions <span class="optional-label">(optional)</span></label>
+        <textarea id="delivery-note" name="deliveryNote" rows="2" placeholder="Landmark, preferred time, etc."></textarea>
+        <fieldset class="payment-options">
+          <legend>Payment preference <span aria-hidden="true">*</span></legend>
+          <label class="payment-choice">
+            <input type="radio" name="payment" value="UPI" required />
+            <span><strong>UPI</strong><small>We’ll share payment details in WhatsApp. Confirm them with us before paying.</small></span>
+          </label>
+          <label class="payment-choice">
+            <input type="radio" name="payment" value="Cash on Delivery" required />
+            <span><strong>Cash on Delivery</strong><small>Pay in cash when your order arrives, subject to confirmation.</small></span>
+          </label>
+        </fieldset>
+        <p class="whatsapp-fallback" id="whatsapp-fallback" hidden>
+          If WhatsApp didn't open, <a id="whatsapp-link" href="#" target="_blank" rel="noopener noreferrer">tap here to send your order</a>.
+        </p>
+        <p class="checkout-note">Your order details will open in WhatsApp. Review and send the message to place your order.</p>
+        <button class="button checkout-button" type="submit">Continue to WhatsApp <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="cart-empty" id="cart-empty">
+        <p>Your bag is taking a little breather.</p>
+        <button class="text-link" id="continue-shopping" type="button">Find something you love <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="cart-summary" id="cart-summary">
+        <p class="shipping-note" id="shipping-note"></p>
+        <div class="subtotal-row"><span>Subtotal</span><strong id="cart-subtotal">₹0</strong></div>
+        <p class="checkout-note">Delivery details are added in the next step. Shipping is confirmed on WhatsApp.</p>
+        <button class="button checkout-button" id="checkout-button" type="button">Add delivery details <span aria-hidden="true">→</span></button>
+      </div>
+    </aside>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="confirmation-backdrop" id="confirmation-backdrop" hidden>
+      <section class="confirmation-dialog" role="dialog" aria-modal="true" aria-labelledby="confirmation-title" aria-describedby="confirmation-message">
+        <button class="icon-button confirmation-close" id="close-confirmation" type="button" aria-label="Close order confirmation">×</button>
+        <p class="eyebrow">A little note from us</p>
+        <h2 id="confirmation-title">Your order details are ready!</h2>
+        <p class="confirmation-thought">Good things are better when they fit just right.</p>
+        <p id="confirmation-message">Send the WhatsApp message to confirm your order. We’ll share delivery updates after it’s confirmed.</p>
+        <a class="button checkout-button confirmation-whatsapp" id="confirmation-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Open WhatsApp <span aria-hidden="true">→</span></a>
+        <button class="confirmation-dismiss" id="dismiss-confirmation" type="button">Back to shopping</button>
+      </section>
+    </div>
+  </body>
+</html>
